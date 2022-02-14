@@ -5,7 +5,7 @@ type Inputs = {
   description?: string;
   name?: string;
   email?: string;
-  password: string | undefined;
+  password?: string;
 };
 
 export default function useFormValidate() {
