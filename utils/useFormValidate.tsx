@@ -1,12 +1,20 @@
 import { useState } from 'react';
 
+type Inputs = {
+  title?: string;
+  description?: string;
+  name?: string;
+  email?: string;
+  password: string;
+};
+
 export default function useFormValidate() {
   // Create a state to handle errors
   const [formError, setFormError] = useState(false);
 
   //   Check for errors and handle them
-  function handleError(inputs) {
-    if (inputs.password.length < 8) {
+  function handleError(inputs: Inputs) {
+    if (inputs?.password?.length < 8) {
       setFormError(true);
       return true;
     }
