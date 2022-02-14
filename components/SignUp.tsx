@@ -36,7 +36,7 @@ export default function SignUp() {
   }
 
   return (
-    <Container sx={{ width: '50%' }}>
+    <Container>
       <Typography
         variant="h4"
         gutterBottom
