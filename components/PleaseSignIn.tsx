@@ -1,9 +1,8 @@
 import { useUser } from './User';
 import SignIn from './SignIn';
-import { ReactNode } from 'react';
 
 interface PleaseSignInProps {
-  children: ReactNode;
+  children: JSX.Element;
 }
 
 export default function PleaseSignIn({ children }: PleaseSignInProps) {

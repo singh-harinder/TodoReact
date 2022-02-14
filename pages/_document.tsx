@@ -17,36 +17,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          {/* <Box
-            sx={{
-              margin: 0,
-              padding: 0,
-              backgroundColor: 'white',
-              background:
-                'linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3))',
-              height: 150,
-              width: 150,
-              position: 'absolute',
-              bottom: '1%',
-              left: '5%',
-              borderRadius: '50%',
-            }}
-          ></Box>
-          <Box
-            sx={{
-              margin: 0,
-              padding: 0,
-              backgroundColor: 'white',
-              background:
-                'linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3))',
-              height: 150,
-              width: 150,
-              position: 'absolute',
-              top: '13%',
-              right: '5%',
-              borderRadius: '50%',
-            }}
-          ></Box> */}
         </body>
       </Html>
     );
