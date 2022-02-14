@@ -18,13 +18,7 @@ export default function Nav() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="sticky"
-        elevation={0}
-        sx={{
-          background: 'linear-gradient(to right top, #81edda, #6cdbeb)',
-        }}
-      >
+      <AppBar position="sticky" elevation={0}>
         <Toolbar>
           <Typography
             variant="h2"
@@ -33,32 +27,18 @@ export default function Nav() {
               flexGrow: 1,
               '& a': {
                 textDecoration: 'none',
-                color: 'black',
+                color: 'white',
               },
             }}
           >
             <Link href="/">Todo</Link>
           </Typography>
-          {/* {!user && (
-            <Button
-              color="inherit"
-              sx={{
-                '& a': {
-                  textDecoration: 'none',
-                  color: 'white',
-                  fontSize: 20,
-                },
-              }}
-            >
-              <Link href="/signin">Sign In</Link>
-            </Button>
-          )} */}
           {user && (
             <Button
               color="inherit"
               sx={{
                 textDecoration: 'none',
-                color: 'black',
+
                 fontSize: 20,
               }}
               onClick={() => signout()}

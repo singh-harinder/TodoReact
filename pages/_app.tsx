@@ -13,7 +13,6 @@ const theme = createTheme({
       styleOverrides: {
         body: {
           margin: 0,
-          background: 'linear-gradient(to right top, #65dfc9, #6cdbeb)',
         },
       },
     },

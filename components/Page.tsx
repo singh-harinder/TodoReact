@@ -12,8 +12,6 @@ export default function Page({ children }: PageProps) {
   return (
     <Container
       sx={{
-        background:
-          'linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3))',
         borderRadius: 8,
         zIndex: 2,
       }}

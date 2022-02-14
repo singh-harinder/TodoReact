@@ -55,7 +55,7 @@ export default function EditTodo({ id }: { id: string }) {
             variant="h4"
             color="primary"
             gutterBottom
-            sx={{ margin: 1, color: '#426696', fontWeight: 600, opacity: 0.8 }}
+            sx={{ margin: 1, fontWeight: 600 }}
           >
             Update Todo
           </Typography>
@@ -93,11 +93,8 @@ export default function EditTodo({ id }: { id: string }) {
               marginTop: 1,
               marginLeft: 2,
               padding: 2,
-              color: 'black',
               fontWeight: 800,
-              opacity: 0.8,
               borderRadius: 2,
-              background: 'linear-gradient(to right top, #65dfc9, #6cdbeb)',
             }}
             type="submit"
             variant="contained"

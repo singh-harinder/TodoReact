@@ -7,7 +7,6 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheets } from '@mui/styles';
 import React from 'react';
-import { Box } from '@mui/system';
 
 class MyDocument extends Document {
   render() {

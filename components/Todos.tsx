@@ -14,9 +14,7 @@ export default function Todos() {
       <Typography
         variant="h3"
         sx={{
-          color: '#426696',
           fontWeight: 600,
-          opacity: 0.8,
           marginBottom: 2,
         }}
       >

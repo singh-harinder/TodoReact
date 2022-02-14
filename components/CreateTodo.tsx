@@ -36,9 +36,7 @@ export default function CreateTodo() {
           color="primary"
           gutterBottom
           sx={{
-            color: '#426696',
             fontWeight: 600,
-            opacity: 0.8,
           }}
         >
           Create a new Todo
@@ -78,11 +76,8 @@ export default function CreateTodo() {
             marginTop: 1,
             marginLeft: 2,
             padding: 2,
-            color: 'black',
             fontWeight: 800,
-            opacity: 0.8,
             borderRadius: 2,
-            background: 'linear-gradient(to right top, #65dfc9, #6cdbeb)',
           }}
           type="submit"
           variant="contained"

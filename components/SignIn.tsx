@@ -40,7 +40,7 @@ export default function SignIn() {
       : undefined;
 
   return (
-    <Container sx={{ width: '50%' }}>
+    <Container>
       <form method="POST" onSubmit={handleSubmit}>
         <Container>
           <Typography
@@ -49,9 +49,7 @@ export default function SignIn() {
             gutterBottom
             sx={{
               margin: 1,
-              color: '#426696',
               fontWeight: 600,
-              opacity: 0.8,
             }}
           >
             Sign in to your Account
@@ -97,11 +95,8 @@ export default function SignIn() {
               marginLeft: 2,
               marginTop: 1,
               padding: 2,
-              color: 'black',
               fontWeight: 800,
-              opacity: 0.8,
               borderRadius: 2,
-              background: 'linear-gradient(to right top, #65dfc9, #6cdbeb)',
             }}
             type="submit"
             disabled={loading}
@@ -124,11 +119,8 @@ export default function SignIn() {
                   marginLeft: 2,
                   marginTop: 1,
                   padding: 2,
-                  color: 'black',
                   fontWeight: 800,
-                  opacity: 0.8,
                   borderRadius: 2,
-                  background: 'linear-gradient(to right top, #65dfc9, #6cdbeb)',
                 }}
               >
                 Create an Account
