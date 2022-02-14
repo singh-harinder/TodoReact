@@ -1,0 +1,10 @@
+query Todo($id: ID!) {
+  Todo(where: { id: $id }) {
+    id
+    title
+    description
+    user {
+      name
+    }
+  }
+}

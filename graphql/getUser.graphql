@@ -1,0 +1,14 @@
+query User {
+  authenticatedItem {
+    ... on User {
+      id
+      name
+      email
+      todos {
+        id
+        title
+        description
+      }
+    }
+  }
+}
