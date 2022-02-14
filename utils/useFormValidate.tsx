@@ -5,7 +5,7 @@ type Inputs = {
   description?: string;
   name?: string;
   email?: string;
-  password: string;
+  password: string | undefined;
 };
 
 export default function useFormValidate() {
@@ -14,7 +14,7 @@ export default function useFormValidate() {
 
   //   Check for errors and handle them
   function handleError(inputs: Inputs) {
-    if (inputs?.password?.length < 8) {
+    if (inputs.password && inputs.password.length < 8) {
       setFormError(true);
       return true;
     }
