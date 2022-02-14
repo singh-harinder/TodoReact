@@ -7,25 +7,17 @@ import {
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { ApolloCache, Cache } from '@apollo/client';
 import Router from 'next/router';
 import {
   refetchUserQuery,
   Todo,
   useDeleteTodoMutation,
-  // Todo as todoType,
 } from '../types/generated-queries';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-type UpdateFnPayloadProps = {
-  data: {
-    deleteTodo: Todo;
-  };
-};
-
-function update(cache: ApolloCache<any>, payload: UpdateFnPayloadProps) {
-  cache.evict(cache.identify(payload.data.deleteTodo) as Cache.EvictOptions);
+function update(cache: any, payload: any) {
+  cache.evict(cache.identify(payload.data.deleteTodo));
 }
 
 type TodoProps = {
