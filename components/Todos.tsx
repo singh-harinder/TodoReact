@@ -2,9 +2,12 @@ import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import Todo from './Todo';
 import { useUserQuery } from '../types/generated-queries';
+import { useRouter } from 'next/router';
 
 export default function Todos() {
   const { data, loading, error } = useUserQuery();
+
+  const router = useRouter();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -12,13 +15,14 @@ export default function Todos() {
   return (
     <Container>
       <Typography
-        variant="h3"
+        variant="h4"
+        color="primary"
         sx={{
           fontWeight: 600,
           marginBottom: 2,
         }}
       >
-        Todos
+        {data?.authenticatedItem?.name} Todos
       </Typography>
       <Grid container>
         {data?.authenticatedItem?.todos.map((todo) => (

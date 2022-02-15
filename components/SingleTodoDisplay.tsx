@@ -10,45 +10,41 @@ import CardContent from '@mui/material/CardContent';
 import Router from 'next/router';
 import {
   refetchUserQuery,
-  Todo,
   useDeleteTodoMutation,
+  useTodoQuery,
 } from '../types/generated-queries';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CardActionArea from '@mui/material/CardActionArea';
 
 function update(cache: any, payload: any) {
   cache.evict(cache.identify(payload.data.deleteTodo));
 }
 
-type TodoProps = {
-  todo: Todo;
-};
-
-export default function SingleTodo({ todo }: TodoProps) {
-  const [deleteTodo, { loading, data, error }] = useDeleteTodoMutation({
+export default function SingleTodoDisplay({ id }: { id: string }) {
+  const [deleteTodo, { loading: deleteLoading }] = useDeleteTodoMutation({
     variables: {
-      id: todo.id,
+      id,
     },
     update,
     refetchQueries: [refetchUserQuery()],
   });
 
+  const { data, loading, error } = useTodoQuery({
+    variables: {
+      id,
+    },
+  });
+
   return (
     <Container>
-      <Card
-        sx={{
-          borderRadius: '5%',
-        }}
-      >
-        <CardActionArea href={`/todo/${todo.id}`}>
-          <CardHeader title={todo.title} />
-          <CardContent>
-            <Typography sx={{ marginTop: 2, marginBottom: 2 }}>
-              {todo?.description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+      <Card>
+        <CardHeader title={data?.Todo?.title} />
+        <CardContent>
+          <Typography sx={{ marginTop: 2, marginBottom: 2 }}>
+            {data?.Todo?.description}
+          </Typography>
+        </CardContent>
+
         <CardActions sx={{ justifyContent: 'space-between', marginBottom: 2 }}>
           <Button
             size="small"
@@ -61,7 +57,7 @@ export default function SingleTodo({ todo }: TodoProps) {
               Router.push({
                 pathname: '/edittodo',
                 query: {
-                  id: todo.id,
+                  id: data?.Todo?.id,
                 },
               });
             }}
@@ -78,6 +74,9 @@ export default function SingleTodo({ todo }: TodoProps) {
                 window.confirm('Are you sure you want to delete this Todo?')
               ) {
                 await deleteTodo();
+                Router.push({
+                  pathname: '/',
+                });
               }
             }}
           >
