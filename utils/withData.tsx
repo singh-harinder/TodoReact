@@ -48,7 +48,8 @@ function createClient({
           credentials: 'include',
         },
         headers: {
-          cookie: headers?.cookie,
+          // cookie: headers?.cookie,
+          headers,
         },
       }),
     ]),
