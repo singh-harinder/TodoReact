@@ -8,10 +8,6 @@ interface PleaseSignInProps {
 export default function PleaseSignIn({ children }: PleaseSignInProps) {
   const me = useUser();
 
-  // console.log(me);
-
-  // if (!me) return <SignIn />;
-  // return children;
-  if (me || undefined) return children;
-  return <SignIn />;
+  if (!me) return <SignIn />;
+  return children;
 }
