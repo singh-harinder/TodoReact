@@ -47,10 +47,7 @@ function createClient({
         fetchOptions: {
           credentials: 'include',
         },
-        headers: {
-          // cookie: headers?.cookie,
-          headers,
-        },
+        headers,
       }),
     ]),
     cache: new InMemoryCache({
