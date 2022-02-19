@@ -1,4 +1,4 @@
-import { useUser } from './User';
+import { useUserQuery } from '../types/generated-queries';
 import SignIn from './SignIn';
 
 interface PleaseSignInProps {
@@ -6,8 +6,8 @@ interface PleaseSignInProps {
 }
 
 export default function PleaseSignIn({ children }: PleaseSignInProps) {
-  const me = useUser();
+  const me = useUserQuery();
 
-  if (!me) return <SignIn />;
+  if (!me.data?.authenticatedItem) return <SignIn />;
   return children;
 }

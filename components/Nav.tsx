@@ -3,14 +3,14 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { useUser } from './User';
 import {
   refetchUserQuery,
   useSignOutMutation,
+  useUserQuery,
 } from '../types/generated-queries';
 
 export default function Nav() {
-  const user = useUser();
+  const user = useUserQuery();
 
   const [signout] = useSignOutMutation({
     refetchQueries: [refetchUserQuery()],
@@ -33,7 +33,7 @@ export default function Nav() {
           >
             <Link href="/">Todo</Link>
           </Typography>
-          {user && (
+          {user.data?.authenticatedItem && (
             <Button
               color="inherit"
               sx={{
