@@ -3,13 +3,14 @@ import { Container, Typography } from '@mui/material';
 import Todo from './Todo';
 import { useUserQuery } from '../types/generated-queries';
 import { useUser } from './User';
+import SignIn from './SignIn';
 
 export default function Todos() {
   const me = useUser();
 
   const { data, loading, error } = useUserQuery();
 
-  if (!me) return null;
+  if (!me) return <SignIn />;
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
