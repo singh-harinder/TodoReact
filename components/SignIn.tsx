@@ -26,7 +26,7 @@ export default function SignIn() {
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault();
 
-    const res = await signin();
+    await signin();
     resetForm();
     Router.push({
       pathname: '/',

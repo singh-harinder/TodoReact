@@ -22,6 +22,8 @@ export default function CreateTodo() {
 
   const me = useUserQuery();
 
+  if (me.loading) return <p>Loading...</p>;
+
   if (!me.data?.authenticatedItem) return null;
 
   if (loading) return <p>Loading...</p>;

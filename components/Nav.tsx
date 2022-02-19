@@ -16,6 +16,8 @@ export default function Nav() {
     refetchQueries: [refetchUserQuery()],
   });
 
+  if (user.loading) return <p>Loading</p>;
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky" elevation={0}>

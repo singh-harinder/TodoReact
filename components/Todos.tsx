@@ -9,6 +9,8 @@ export default function Todos() {
 
   const { data, loading, error } = useUserQuery();
 
+  if (me.loading) return <p>Loading...</p>;
+
   if (!me.data?.authenticatedItem) return <SignIn />;
 
   if (loading) return <p>Loading...</p>;
