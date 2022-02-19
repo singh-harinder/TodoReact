@@ -3,7 +3,6 @@ import Todos from './Todos';
 import { ReactNode } from 'react';
 import CreateTodo from './CreateTodo';
 import { Container } from '@mui/material';
-import PleaseSignIn from './PleaseSignIn';
 
 interface PageProps {
   children?: ReactNode;
@@ -11,21 +10,19 @@ interface PageProps {
 
 export default function Page({ children }: PageProps) {
   return (
-    <PleaseSignIn>
-      <Container
-        sx={{
-          borderRadius: 8,
-          zIndex: 2,
-        }}
-      >
-        <Box />
-        <Todos />
-        <div>{}</div>
-        <Box />
-        <CreateTodo />
-        <Box />
-        {children}
-      </Container>
-    </PleaseSignIn>
+    <Container
+      sx={{
+        borderRadius: 8,
+        zIndex: 2,
+      }}
+    >
+      <Box />
+      <Todos />
+      <div>{}</div>
+      <Box />
+      <CreateTodo />
+      <Box />
+      {children}
+    </Container>
   );
 }

@@ -2,12 +2,14 @@ import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import Todo from './Todo';
 import { useUserQuery } from '../types/generated-queries';
-import { useRouter } from 'next/router';
+import { useUser } from './User';
 
 export default function Todos() {
+  const me = useUser();
+
   const { data, loading, error } = useUserQuery();
 
-  const router = useRouter();
+  if (!me) return null;
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

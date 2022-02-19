@@ -4,6 +4,7 @@ import {
   refetchUserQuery,
   useCreateTodoMutation,
 } from '../types/generated-queries';
+import { useUser } from './User';
 
 export default function CreateTodo() {
   const { inputs, handleChange, clearForm } = useForm({
@@ -18,6 +19,10 @@ export default function CreateTodo() {
     },
     refetchQueries: [refetchUserQuery()],
   });
+
+  const me = useUser();
+
+  if (!me) return null;
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
