@@ -1,20 +1,21 @@
 import Grid from '@mui/material/Grid';
-import { Container, Typography } from '@mui/material';
+import { Alert, Container, Typography } from '@mui/material';
 import Todo from './Todo';
 import { useUserQuery } from '../types/generated-queries';
 import SignIn from './SignIn';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Todos() {
   const me = useUserQuery();
 
   const { data, loading, error } = useUserQuery();
 
-  if (me.loading) return <p>Loading...</p>;
+  if (me.loading) return <CircularProgress />;
 
   if (!me.data?.authenticatedItem) return <SignIn />;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <CircularProgress />;
+  if (error) return <Alert severity="error">Error: {error.message}</Alert>;
 
   return (
     <Container>

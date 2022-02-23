@@ -1,10 +1,11 @@
-import { Button, Container, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, TextField, Typography } from '@mui/material';
 import useForm from '../utils/useForm';
 import {
   refetchUserQuery,
   useCreateTodoMutation,
   useUserQuery,
 } from '../types/generated-queries';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function CreateTodo() {
   const { inputs, handleChange, clearForm } = useForm({
@@ -22,12 +23,12 @@ export default function CreateTodo() {
 
   const me = useUserQuery();
 
-  if (me.loading) return <p>Loading...</p>;
+  if (me.loading) return <CircularProgress />;
 
   if (!me.data?.authenticatedItem) return null;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <CircularProgress />;
+  if (error) return <Alert severity="error">Error: {error.message}</Alert>;
 
   return (
     <form

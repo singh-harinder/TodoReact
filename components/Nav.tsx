@@ -8,6 +8,7 @@ import {
   useSignOutMutation,
   useUserQuery,
 } from '../types/generated-queries';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Nav() {
   const user = useUserQuery();
@@ -16,7 +17,7 @@ export default function Nav() {
     refetchQueries: [refetchUserQuery()],
   });
 
-  if (user.loading) return <p>Loading</p>;
+  if (user.loading) return <CircularProgress />;
 
   return (
     <Box sx={{ flexGrow: 1 }}>

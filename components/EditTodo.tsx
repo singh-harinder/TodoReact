@@ -1,4 +1,4 @@
-import { Button, Container, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, TextField, Typography } from '@mui/material';
 import Router from 'next/router';
 import Head from 'next/head';
 import useForm from '../utils/useForm';
@@ -6,6 +6,7 @@ import {
   useTodoQuery,
   useUpdateTodoMutation,
 } from '../types/generated-queries';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function EditTodo({ id }: { id: string }) {
   const { data, loading, error } = useTodoQuery({
@@ -28,11 +29,13 @@ export default function EditTodo({ id }: { id: string }) {
       },
     });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <CircularProgress />;
+  if (error) return <Alert severity="error">Error: {error.message}</Alert>;
 
-  if (updateLoading) return <p>Loading ...</p>;
-  if (updateError) return <p>Error: {updateError.message}</p>;
+  if (updateLoading) return <CircularProgress />;
+  if (updateError) {
+    return <Alert severity="error">Error: {updateError.message}</Alert>;
+  }
 
   return (
     <>
